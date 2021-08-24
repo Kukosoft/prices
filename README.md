@@ -40,4 +40,4 @@ Automatic tests
 
 Also here is a request example with the prices endpoint to do manual testing
 
-[API guide](api-guide.html)
+[API guide](https://kukosoft.github.io/prices/api-guide.html)
