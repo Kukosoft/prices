@@ -1,11 +1,11 @@
-package com.kairosds.prices.application.service;
+package com.kairosds.prices.domain.service;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-import com.kairosds.prices.application.repository.PriceRepository;
 import com.kairosds.prices.domain.Price;
+import com.kairosds.prices.domain.repository.PriceRepository;
 
 import lombok.RequiredArgsConstructor;
 

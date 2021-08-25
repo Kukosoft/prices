@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.kairosds.prices.application.repository.PriceRepository;
 import com.kairosds.prices.domain.Price;
+import com.kairosds.prices.domain.repository.PriceRepository;
 import com.kairosds.prices.infrastructure.db.dbo.PriceEntity;
 import com.kairosds.prices.infrastructure.db.mapper.PriceEntityMapper;
 

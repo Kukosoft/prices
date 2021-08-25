@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.application.service.BrandService;
+import com.kairosds.prices.domain.service.BrandService;
 import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 import com.kairosds.prices.infrastructure.rest.mapper.BrandMapper;
 

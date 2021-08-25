@@ -43,13 +43,13 @@ class PricesApplicationTests {
 	private DateTimeFormatter dateTimeFormatter;
 
 	@BeforeEach
-	public void setUp(WebApplicationContext webApplicationContext) {
+	void setUp(WebApplicationContext webApplicationContext) {
 		mockMvc = webAppContextSetup(webApplicationContext).build();
 		dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
 	}
 
 	@Test
-	public void getPriceTest1() throws Exception {
+	void getPriceTest1() throws Exception {
 		mockMvc.perform(get("/prices/price").contentType(APPLICATION_JSON).param(DATE_PARAM, "2020-06-14T10:00")
 				.param(PRODUCT_ID_PARAM, "35455").param(BRAND_ID_PARAM, "1")).andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))
@@ -64,7 +64,7 @@ class PricesApplicationTests {
 	}
 
 	@Test
-	public void getPriceTest2() throws Exception {
+	void getPriceTest2() throws Exception {
 		mockMvc.perform(get("/prices/price").contentType(APPLICATION_JSON).param(DATE_PARAM, "2020-06-14T16:00")
 				.param(PRODUCT_ID_PARAM, "35455").param(BRAND_ID_PARAM, "1")).andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))
@@ -79,7 +79,7 @@ class PricesApplicationTests {
 	}
 
 	@Test
-	public void getPriceTest3() throws Exception {
+	void getPriceTest3() throws Exception {
 		mockMvc.perform(get("/prices/price").contentType(APPLICATION_JSON).param(DATE_PARAM, "2020-06-14T21:00")
 				.param(PRODUCT_ID_PARAM, "35455").param(BRAND_ID_PARAM, "1")).andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))
@@ -94,7 +94,7 @@ class PricesApplicationTests {
 	}
 
 	@Test
-	public void getPriceTest4() throws Exception {
+	void getPriceTest4() throws Exception {
 		mockMvc.perform(get("/prices/price").contentType(APPLICATION_JSON).param(DATE_PARAM, "2020-06-15T10:00")
 				.param(PRODUCT_ID_PARAM, "35455").param(BRAND_ID_PARAM, "1")).andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))
@@ -109,7 +109,7 @@ class PricesApplicationTests {
 	}
 
 	@Test
-	public void getPriceTest5() throws Exception {
+	void getPriceTest5() throws Exception {
 		mockMvc.perform(get("/prices/price").contentType(APPLICATION_JSON).param(DATE_PARAM, "2020-06-16T21:00")
 				.param(PRODUCT_ID_PARAM, "35455").param(BRAND_ID_PARAM, "1")).andExpect(status().isOk())
 				.andExpect(content().contentTypeCompatibleWith(APPLICATION_JSON))

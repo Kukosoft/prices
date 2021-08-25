@@ -1,4 +1,4 @@
-package com.kairosds.prices.application.repository;
+package com.kairosds.prices.domain.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -2,8 +2,8 @@ package com.kairosds.prices.infrastructure.db.repository;
 
 import org.springframework.stereotype.Service;
 
-import com.kairosds.prices.application.repository.BrandRepository;
 import com.kairosds.prices.domain.Brand;
+import com.kairosds.prices.domain.repository.BrandRepository;
 import com.kairosds.prices.infrastructure.db.mapper.BrandEntityMapper;
 
 import lombok.RequiredArgsConstructor;

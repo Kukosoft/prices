@@ -1,4 +1,4 @@
-package com.kairosds.prices.application.repository;
+package com.kairosds.prices.domain.repository;
 
 import com.kairosds.prices.domain.Brand;
 

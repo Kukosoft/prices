@@ -1,7 +1,7 @@
-package com.kairosds.prices.application.service;
+package com.kairosds.prices.domain.service;
 
-import com.kairosds.prices.application.repository.BrandRepository;
 import com.kairosds.prices.domain.Brand;
+import com.kairosds.prices.domain.repository.BrandRepository;
 
 import lombok.RequiredArgsConstructor;
 

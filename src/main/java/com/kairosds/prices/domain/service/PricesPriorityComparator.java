@@ -1,4 +1,4 @@
-package com.kairosds.prices.application.service;
+package com.kairosds.prices.domain.service;
 
 import java.util.Comparator;
 

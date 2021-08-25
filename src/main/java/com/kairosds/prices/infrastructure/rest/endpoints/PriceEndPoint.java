@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.application.service.PriceService;
+import com.kairosds.prices.domain.service.PriceService;
 import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 import com.kairosds.prices.infrastructure.rest.mapper.PriceMapper;
 
