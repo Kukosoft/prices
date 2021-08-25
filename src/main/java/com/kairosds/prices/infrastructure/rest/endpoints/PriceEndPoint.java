@@ -35,7 +35,7 @@ public class PriceEndPoint {
 		try {
 			return new ResponseEntity<>(priceMapper.toDto(priceService.getPrice(id)), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Price not found", e);
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
 	}
 
@@ -47,7 +47,7 @@ public class PriceEndPoint {
 			return new ResponseEntity<>(priceMapper.toDto(priceService.getPrice(date, productId, brandId)),
 					HttpStatus.OK);
 		} catch (NoSuchElementException e) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Price not found", e);
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
 	}
 

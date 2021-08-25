@@ -1,5 +1,7 @@
 package com.kairosds.prices.infrastructure.rest.endpoints;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.service.BrandService;
 import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
@@ -26,7 +29,11 @@ public class BrandEndPoint {
 
 	@GetMapping("/brand/{id}")
 	public ResponseEntity<BrandDto> getBrandById(@PathVariable Long id) {
-		return new ResponseEntity<>(brandMapper.toDto(brandService.getBrand(id)), HttpStatus.OK);
+		try {
+			return new ResponseEntity<>(brandMapper.toDto(brandService.getBrand(id)), HttpStatus.OK);
+		} catch (NoSuchElementException e) {
+			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Brand not found", e);
+		}
 	}
 
 	@PostMapping
