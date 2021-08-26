@@ -24,7 +24,7 @@ class BrandServiceTest {
 	private BrandRepository brandRepository;
 
 	@InjectMocks
-	private BrandService brandService;
+	private BrandServiceImpl brandService;
 
 	@Test
 	void getBrandByIdFoundTest() {

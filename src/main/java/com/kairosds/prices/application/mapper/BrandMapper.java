@@ -8,8 +8,8 @@ import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 @Mapper
 public interface BrandMapper {
 
-	BrandDto toDto(Brand user);
+	BrandDto toDto(Brand brand);
 
-	Brand toDomain(BrandDto userDto);
+	Brand toDomain(BrandDto brandDto);
 
 }

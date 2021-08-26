@@ -11,6 +11,8 @@ import org.apache.commons.math3.random.RandomDataGenerator;
 
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.Price;
+import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
+import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
 public class CommonTestUtils {
 
@@ -27,6 +29,13 @@ public class CommonTestUtils {
 		return brand;
 	}
 
+	public static BrandDto createRandomBrandDto() {
+		BrandDto brandDto = new BrandDto();
+		brandDto.setId(randomDataGenerator.nextLong(1, 100));
+		brandDto.setName(randomAlphabetic(20));
+		return brandDto;
+	}
+
 	public static Price createRandomPrice() {
 		Price price = new Price();
 		price.setId(randomDataGenerator.nextLong(1, 100));
@@ -39,6 +48,18 @@ public class CommonTestUtils {
 		price.setCurr(nextCurrency());
 		price.setBrand(createRandomBrand());
 		return price;
+	}
+
+	public static PriceDto createRandomPriceDto() {
+		PriceDto priceDto = new PriceDto();
+		priceDto.setProductId(randomDataGenerator.nextLong(1, 100));
+		priceDto.setBrandId(randomDataGenerator.nextLong(1, 100));
+		priceDto.setPriceList(randomDataGenerator.nextLong(1, 100));
+		priceDto.setStartDate(LocalDateTime.of(2021, 8, 25, 12, 0));
+		priceDto.setEndDate(LocalDateTime.of(2021, 8, 26, 18, 30));
+		priceDto.setPrice(nextFloat(1, 100));
+		priceDto.setCurr(nextCurrency());
+		return priceDto;
 	}
 
 	private static float nextFloat(float lower, float upper) {

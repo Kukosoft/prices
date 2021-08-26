@@ -30,7 +30,7 @@ class PriceServiceTest {
 	private PricesPriorityComparator pricesPriorityComparator;
 
 	@InjectMocks
-	private PriceService priceService;
+	private PriceServiceImpl priceService;
 
 	@Test
 	void getPriceByIdFoundTest() {

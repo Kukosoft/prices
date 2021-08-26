@@ -18,7 +18,7 @@ public class DomainPojosTest {
 	private static final String DOMAIN_PACKAGE = "com.kairosds.prices.domain";
 
 	@Test
-	public void domainPojosTest() {
+	void domainPojosTest() {
 		final Validator validator = ValidatorBuilder.create().with(new GetterMustExistRule())
 				.with(new SetterMustExistRule()).with(new SetterTester()).with(new GetterTester()).build();
 
