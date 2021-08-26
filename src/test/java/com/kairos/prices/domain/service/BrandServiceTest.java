@@ -16,7 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.repository.BrandRepository;
-import com.kairosds.prices.domain.service.BrandService;
+import com.kairosds.prices.domain.service.BrandServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class BrandServiceTest {
@@ -25,7 +25,7 @@ class BrandServiceTest {
 	private BrandRepository brandRepository;
 
 	@InjectMocks
-	private BrandService brandService;
+	private BrandServiceImpl brandService;
 
 	@Test
 	void getBrandByIdFoundTest() {

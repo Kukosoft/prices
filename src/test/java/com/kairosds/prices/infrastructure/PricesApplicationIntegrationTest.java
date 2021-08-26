@@ -1,4 +1,4 @@
-package com.kairosds.prices;
+package com.kairosds.prices.infrastructure;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -22,7 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @ExtendWith({ SpringExtension.class })
 @SpringBootTest
-class PricesApplicationTests {
+class PricesApplicationIntegrationTest {
 
 	private static final String PRODUCT_ID_FIELD = "productId";
 	private static final String PRICE_LIST_FIELD = "priceList";

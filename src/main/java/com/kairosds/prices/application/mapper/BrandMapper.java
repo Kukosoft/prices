@@ -1,11 +1,11 @@
-package com.kairosds.prices.infrastructure.rest.mapper;
+package com.kairosds.prices.application.mapper;
 
 import org.mapstruct.Mapper;
 
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface BrandMapper {
 
 	BrandDto toDto(Brand user);

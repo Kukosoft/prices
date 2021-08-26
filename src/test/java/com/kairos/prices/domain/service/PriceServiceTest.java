@@ -20,7 +20,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.kairosds.prices.domain.Price;
 import com.kairosds.prices.domain.repository.PriceRepository;
-import com.kairosds.prices.domain.service.PriceService;
+import com.kairosds.prices.domain.service.PriceServiceImpl;
 import com.kairosds.prices.domain.service.PricesPriorityComparator;
 
 @ExtendWith(MockitoExtension.class)
@@ -32,7 +32,7 @@ class PriceServiceTest {
 	private PricesPriorityComparator pricesPriorityComparator;
 
 	@InjectMocks
-	private PriceService priceService;
+	private PriceServiceImpl priceService;
 
 	@Test
 	void getPriceByIdFoundTest() {

@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.domain.service.PriceService;
+import com.kairosds.prices.application.PriceUseCases;
 import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
-import com.kairosds.prices.infrastructure.rest.mapper.PriceMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,14 +25,12 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/prices")
 public class PriceEndPoint {
 
-	private final PriceService priceService;
-
-	private final PriceMapper priceMapper;
+	private final PriceUseCases priceUseCases;
 
 	@GetMapping("price/{id}")
 	public ResponseEntity<PriceDto> getPriceById(@PathVariable Long id) {
 		try {
-			return new ResponseEntity<>(priceMapper.toDto(priceService.getPrice(id)), HttpStatus.OK);
+			return new ResponseEntity<>(priceUseCases.getPriceById(id), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
@@ -44,8 +41,7 @@ public class PriceEndPoint {
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
 			@RequestParam Long productId, @RequestParam Long brandId) {
 		try {
-			return new ResponseEntity<>(priceMapper.toDto(priceService.getPrice(date, productId, brandId)),
-					HttpStatus.OK);
+			return new ResponseEntity<>(priceUseCases.getPrice(date, productId, brandId), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
@@ -53,8 +49,7 @@ public class PriceEndPoint {
 
 	@PostMapping
 	public ResponseEntity<PriceDto> savePrice(@RequestBody PriceDto priceDto) {
-		return new ResponseEntity<>(priceMapper.toDto(priceService.savePrice(priceMapper.toDomain(priceDto))),
-				HttpStatus.CREATED);
+		return new ResponseEntity<>(priceUseCases.savePrice(priceDto), HttpStatus.CREATED);
 	}
 
 }

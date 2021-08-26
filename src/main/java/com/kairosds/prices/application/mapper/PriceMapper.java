@@ -1,4 +1,4 @@
-package com.kairosds.prices.infrastructure.rest.mapper;
+package com.kairosds.prices.application.mapper;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -8,7 +8,7 @@ import org.mapstruct.ReportingPolicy;
 import com.kairosds.prices.domain.Price;
 import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PriceMapper {
 
 	@Mappings({ @Mapping(target = "brandId", source = "price.brand.id") })
