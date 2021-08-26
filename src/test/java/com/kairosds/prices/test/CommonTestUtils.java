@@ -9,10 +9,10 @@ import java.util.Random;
 
 import org.apache.commons.math3.random.RandomDataGenerator;
 
+import com.kairosds.prices.application.dto.BrandDto;
+import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.Price;
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
-import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
 public class CommonTestUtils {
 

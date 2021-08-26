@@ -1,6 +1,6 @@
 package com.kairosds.prices.application;
 
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
+import com.kairosds.prices.application.dto.BrandDto;
 
 public interface BrandUseCases {
 

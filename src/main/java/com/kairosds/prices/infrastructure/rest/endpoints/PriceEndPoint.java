@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.PriceUseCases;
-import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
+import com.kairosds.prices.application.dto.PriceDto;
 
 import lombok.RequiredArgsConstructor;
 

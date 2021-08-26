@@ -14,10 +14,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.kairosds.prices.application.dto.BrandDto;
 import com.kairosds.prices.application.mapper.BrandMapper;
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.service.BrandService;
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 
 @ExtendWith(MockitoExtension.class)
 public class BrandUseCasesTest {

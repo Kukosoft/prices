@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.BrandUseCases;
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
+import com.kairosds.prices.application.dto.BrandDto;
 
 import lombok.RequiredArgsConstructor;
 

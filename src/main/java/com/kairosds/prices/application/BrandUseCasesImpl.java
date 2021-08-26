@@ -1,8 +1,8 @@
 package com.kairosds.prices.application;
 
+import com.kairosds.prices.application.dto.BrandDto;
 import com.kairosds.prices.application.mapper.BrandMapper;
 import com.kairosds.prices.domain.service.BrandService;
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 
 import lombok.RequiredArgsConstructor;
 

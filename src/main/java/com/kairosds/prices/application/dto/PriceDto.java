@@ -1,4 +1,4 @@
-package com.kairosds.prices.infrastructure.rest.dto;
+package com.kairosds.prices.application.dto;
 
 import java.time.LocalDateTime;
 import java.util.Currency;

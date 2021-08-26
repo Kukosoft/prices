@@ -5,8 +5,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.ReportingPolicy;
 
+import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.domain.Price;
-import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface PriceMapper {

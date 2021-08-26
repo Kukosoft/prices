@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.kairosds.prices.application.dto.BrandDto;
 import com.kairosds.prices.domain.Brand;
-import com.kairosds.prices.infrastructure.rest.dto.BrandDto;
 
 public class BrandMapperTest {
 

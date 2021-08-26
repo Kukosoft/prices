@@ -2,9 +2,9 @@ package com.kairosds.prices.application;
 
 import java.time.LocalDateTime;
 
+import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.application.mapper.PriceMapper;
 import com.kairosds.prices.domain.service.PriceService;
-import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
 import lombok.RequiredArgsConstructor;
 

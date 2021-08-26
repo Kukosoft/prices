@@ -8,8 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.domain.Price;
-import com.kairosds.prices.infrastructure.rest.dto.PriceDto;
 
 public class PriceMapperTest {
 
