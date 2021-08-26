@@ -1,6 +1,6 @@
-package com.kairos.prices.domain.service;
+package com.kairosds.prices.domain.service;
 
-import static com.kairos.prices.test.CommonTestUtils.createRandomPrice;
+import static com.kairosds.prices.test.CommonTestUtils.createRandomPrice;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
@@ -20,8 +20,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.kairosds.prices.domain.Price;
 import com.kairosds.prices.domain.repository.PriceRepository;
-import com.kairosds.prices.domain.service.PriceServiceImpl;
-import com.kairosds.prices.domain.service.PricesPriorityComparator;
 
 @ExtendWith(MockitoExtension.class)
 class PriceServiceTest {
@@ -32,7 +30,7 @@ class PriceServiceTest {
 	private PricesPriorityComparator pricesPriorityComparator;
 
 	@InjectMocks
-	private PriceServiceImpl priceService;
+	private PriceService priceService;
 
 	@Test
 	void getPriceByIdFoundTest() {

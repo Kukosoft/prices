@@ -1,6 +1,6 @@
-package com.kairos.prices.domain.service;
+package com.kairosds.prices.domain.service;
 
-import static com.kairos.prices.test.CommonTestUtils.createRandomBrand;
+import static com.kairosds.prices.test.CommonTestUtils.createRandomBrand;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
@@ -16,7 +16,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.repository.BrandRepository;
-import com.kairosds.prices.domain.service.BrandServiceImpl;
 
 @ExtendWith(MockitoExtension.class)
 class BrandServiceTest {
@@ -25,7 +24,7 @@ class BrandServiceTest {
 	private BrandRepository brandRepository;
 
 	@InjectMocks
-	private BrandServiceImpl brandService;
+	private BrandService brandService;
 
 	@Test
 	void getBrandByIdFoundTest() {

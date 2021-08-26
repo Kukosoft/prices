@@ -1,4 +1,4 @@
-package com.kairos.prices.test;
+package com.kairosds.prices.test;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 
