@@ -62,6 +62,47 @@ public class CommonTestUtils {
 		return priceDto;
 	}
 
+	public static Brand brandDtoToDomain(BrandDto brandDto) {
+		Brand brand = new Brand();
+		brand.setId(brandDto.getId());
+		brand.setName(brandDto.getName());
+		return brand;
+	}
+
+	public static BrandDto brandDomainToDto(Brand brand) {
+		BrandDto brandDto = new BrandDto();
+		brandDto.setId(brand.getId());
+		brandDto.setName(brand.getName());
+		return brandDto;
+	}
+
+	public static Price priceDtoToDomain(PriceDto priceDto) {
+		Price price = createRandomPrice();
+		price.setStartDate(priceDto.getStartDate());
+		price.setEndDate(priceDto.getEndDate());
+		price.setPriceList(priceDto.getPriceList());
+		price.setProductId(priceDto.getProductId());
+		price.setPrice(priceDto.getPrice());
+		price.setCurr(priceDto.getCurr());
+
+		Brand brand = createRandomBrand();
+		brand.setId(priceDto.getBrandId());
+		price.setBrand(brand);
+		return price;
+	}
+
+	public static PriceDto priceDomainToDto(Price price) {
+		PriceDto priceDto = new PriceDto();
+		priceDto.setProductId(price.getProductId());
+		priceDto.setBrandId(price.getBrand().getId());
+		priceDto.setPriceList(price.getPriceList());
+		priceDto.setStartDate(price.getStartDate());
+		priceDto.setEndDate(price.getEndDate());
+		priceDto.setPrice(price.getPrice());
+		priceDto.setCurr(price.getCurr());
+		return priceDto;
+	}
+
 	private static float nextFloat(float lower, float upper) {
 		float randomFloat = randomDataGenerator.getRandomGenerator().nextFloat();
 		return lower + randomFloat * (upper - lower);
