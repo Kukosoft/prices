@@ -1,9 +1,7 @@
-package com.kairosds.prices.application;
+package com.kairosds.prices.application.usecases.price;
 
-import static com.kairosds.prices.test.CommonTestUtils.priceDomainToDto;
-import static com.kairosds.prices.test.CommonTestUtils.priceDtoToDomain;
 import static com.kairosds.prices.test.CommonTestUtils.createRandomPrice;
-import static com.kairosds.prices.test.CommonTestUtils.createRandomPriceDto;
+import static com.kairosds.prices.test.CommonTestUtils.priceDomainToDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -20,7 +18,7 @@ import com.kairosds.prices.domain.Price;
 import com.kairosds.prices.domain.service.PriceService;
 
 @ExtendWith(MockitoExtension.class)
-public class PriceUseCasesTest {
+public class GetPriceByIdUseCaseTest {
 
 	@Mock
 	private PriceService priceService;
@@ -29,7 +27,7 @@ public class PriceUseCasesTest {
 	private PriceMapper priceMapper;
 
 	@InjectMocks
-	private PriceUseCasesImpl priceUseCases;
+	private GetPriceByIdUseCaseImpl getPriceByIdUseCase;
 
 	@Test
 	void getPriceByIdTest() {
@@ -37,23 +35,9 @@ public class PriceUseCasesTest {
 		PriceDto expected = priceDomainToDto(price);
 		when(priceService.getPrice(price.getId())).thenReturn(price);
 		when(priceMapper.toDto(price)).thenReturn(expected);
-		PriceDto actual = priceUseCases.getPriceById(price.getId());
+		PriceDto actual = getPriceByIdUseCase.execute(price.getId());
 		assertEquals(expected, actual);
 		verify(priceService).getPrice(price.getId());
-		verify(priceMapper).toDto(price);
-	}
-
-	@Test
-	void savePriceSuccessTest() {
-		PriceDto expected = createRandomPriceDto();
-		Price price = priceDtoToDomain(expected);
-		when(priceMapper.toDomain(expected)).thenReturn(price);
-		when(priceService.savePrice(price)).thenReturn(price);
-		when(priceMapper.toDto(price)).thenReturn(expected);
-		PriceDto actual = priceUseCases.savePrice(expected);
-		assertEquals(expected, actual);
-		verify(priceMapper).toDomain(expected);
-		verify(priceService).savePrice(price);
 		verify(priceMapper).toDto(price);
 	}
 

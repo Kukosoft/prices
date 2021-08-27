@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.application.PriceUseCases;
 import com.kairosds.prices.application.dto.PriceDto;
+import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCase;
+import com.kairosds.prices.application.usecases.price.GetPriceUseCase;
+import com.kairosds.prices.application.usecases.price.SavePriceUseCase;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,12 +27,16 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/prices")
 public class PriceEndPoint {
 
-	private final PriceUseCases priceUseCases;
+	private final GetPriceByIdUseCase getPriceByIdUseCase;
+
+	private final GetPriceUseCase getPriceUseCase;
+
+	private final SavePriceUseCase savePriceUseCase;
 
 	@GetMapping("price/{id}")
 	public ResponseEntity<PriceDto> getPriceById(@PathVariable Long id) {
 		try {
-			return new ResponseEntity<>(priceUseCases.getPriceById(id), HttpStatus.OK);
+			return new ResponseEntity<>(getPriceByIdUseCase.execute(id), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
@@ -41,7 +47,7 @@ public class PriceEndPoint {
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
 			@RequestParam Long productId, @RequestParam Long brandId) {
 		try {
-			return new ResponseEntity<>(priceUseCases.getPrice(date, productId, brandId), HttpStatus.OK);
+			return new ResponseEntity<>(getPriceUseCase.execute(date, productId, brandId), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
 		}
@@ -49,7 +55,7 @@ public class PriceEndPoint {
 
 	@PostMapping
 	public ResponseEntity<PriceDto> savePrice(@RequestBody PriceDto priceDto) {
-		return new ResponseEntity<>(priceUseCases.savePrice(priceDto), HttpStatus.CREATED);
+		return new ResponseEntity<>(savePriceUseCase.execute(priceDto), HttpStatus.CREATED);
 	}
 
 }

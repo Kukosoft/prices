@@ -3,14 +3,20 @@ package com.kairosds.prices.infrastructure.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.kairosds.prices.application.BrandUseCases;
-import com.kairosds.prices.application.BrandUseCasesImpl;
-import com.kairosds.prices.application.PriceUseCases;
-import com.kairosds.prices.application.PriceUseCasesImpl;
 import com.kairosds.prices.application.mapper.BrandMapper;
 import com.kairosds.prices.application.mapper.BrandMapperImpl;
 import com.kairosds.prices.application.mapper.PriceMapper;
 import com.kairosds.prices.application.mapper.PriceMapperImpl;
+import com.kairosds.prices.application.usecases.brand.GetBrandByIdUseCase;
+import com.kairosds.prices.application.usecases.brand.GetBrandByIdUseCaseImpl;
+import com.kairosds.prices.application.usecases.brand.SaveBrandUseCase;
+import com.kairosds.prices.application.usecases.brand.SaveBrandUseCaseImpl;
+import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCase;
+import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCaseImpl;
+import com.kairosds.prices.application.usecases.price.GetPriceUseCase;
+import com.kairosds.prices.application.usecases.price.GetPriceUseCaseImpl;
+import com.kairosds.prices.application.usecases.price.SavePriceUseCase;
+import com.kairosds.prices.application.usecases.price.SavePriceUseCaseImpl;
 import com.kairosds.prices.domain.repository.BrandRepository;
 import com.kairosds.prices.domain.repository.PriceRepository;
 import com.kairosds.prices.domain.service.BrandService;
@@ -33,13 +39,28 @@ public class SpringBootServiceConfig {
 	}
 
 	@Bean
-	public BrandUseCases brandUseCases(BrandService brandService, BrandMapper brandMapper) {
-		return new BrandUseCasesImpl(brandService, brandMapper);
+	public GetBrandByIdUseCase getBrandByIdUseCase(BrandService brandService, BrandMapper brandMapper) {
+		return new GetBrandByIdUseCaseImpl(brandService, brandMapper);
 	}
 
 	@Bean
-	public PriceUseCases priceUseCases(PriceService priceService, PriceMapper priceMapper) {
-		return new PriceUseCasesImpl(priceService, priceMapper);
+	public SaveBrandUseCase saveBrandUseCase(BrandService brandService, BrandMapper brandMapper) {
+		return new SaveBrandUseCaseImpl(brandService, brandMapper);
+	}
+
+	@Bean
+	public GetPriceByIdUseCase getPriceByIdUseCase(PriceService priceService, PriceMapper priceMapper) {
+		return new GetPriceByIdUseCaseImpl(priceService, priceMapper);
+	}
+
+	@Bean
+	public GetPriceUseCase getPriceUseCase(PriceService priceService, PriceMapper priceMapper) {
+		return new GetPriceUseCaseImpl(priceService, priceMapper);
+	}
+
+	@Bean
+	public SavePriceUseCase savePriceUseCase(PriceService priceService, PriceMapper priceMapper) {
+		return new SavePriceUseCaseImpl(priceService, priceMapper);
 	}
 
 	@Bean

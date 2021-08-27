@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.application.BrandUseCases;
 import com.kairosds.prices.application.dto.BrandDto;
+import com.kairosds.prices.application.usecases.brand.GetBrandByIdUseCase;
+import com.kairosds.prices.application.usecases.brand.SaveBrandUseCase;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,12 +23,14 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/brands")
 public class BrandEndPoint {
 
-	private final BrandUseCases brandUseCases;
+	private final GetBrandByIdUseCase getBrandByIdUseCase;
+
+	private final SaveBrandUseCase saveBrandUseCase;
 
 	@GetMapping("/brand/{id}")
 	public ResponseEntity<BrandDto> getBrandById(@PathVariable Long id) {
 		try {
-			return new ResponseEntity<>(brandUseCases.getBrandById(id), HttpStatus.OK);
+			return new ResponseEntity<>(getBrandByIdUseCase.execute(id), HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Brand not found", e);
 		}
@@ -35,7 +38,7 @@ public class BrandEndPoint {
 
 	@PostMapping
 	public ResponseEntity<BrandDto> saveBrand(@RequestBody BrandDto brandDto) {
-		return new ResponseEntity<>(brandUseCases.saveBrand(brandDto), HttpStatus.CREATED);
+		return new ResponseEntity<>(saveBrandUseCase.execute(brandDto), HttpStatus.CREATED);
 	}
 
 }

@@ -1,8 +1,6 @@
-package com.kairosds.prices.application;
+package com.kairosds.prices.application.usecases.brand;
 
-import static com.kairosds.prices.test.CommonTestUtils.brandDomainToDto;
 import static com.kairosds.prices.test.CommonTestUtils.brandDtoToDomain;
-import static com.kairosds.prices.test.CommonTestUtils.createRandomBrand;
 import static com.kairosds.prices.test.CommonTestUtils.createRandomBrandDto;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.verify;
@@ -20,7 +18,7 @@ import com.kairosds.prices.domain.Brand;
 import com.kairosds.prices.domain.service.BrandService;
 
 @ExtendWith(MockitoExtension.class)
-public class BrandUseCasesTest {
+public class SaveBrandUseCaseTest {
 
 	@Mock
 	private BrandService brandService;
@@ -29,19 +27,7 @@ public class BrandUseCasesTest {
 	private BrandMapper brandMapper;
 
 	@InjectMocks
-	private BrandUseCasesImpl brandUseCases;
-
-	@Test
-	void getBrandByIdTest() {
-		Brand brand = createRandomBrand();
-		BrandDto expected = brandDomainToDto(brand);
-		when(brandService.getBrand(brand.getId())).thenReturn(brand);
-		when(brandMapper.toDto(brand)).thenReturn(expected);
-		BrandDto actual = brandUseCases.getBrandById(brand.getId());
-		assertEquals(expected, actual);
-		verify(brandService).getBrand(brand.getId());
-		verify(brandMapper).toDto(brand);
-	}
+	private SaveBrandUseCaseImpl saveBrandUseCase;
 
 	@Test
 	void saveBrandSuccessTest() {
@@ -50,7 +36,7 @@ public class BrandUseCasesTest {
 		when(brandMapper.toDomain(expected)).thenReturn(brand);
 		when(brandService.saveBrand(brand)).thenReturn(brand);
 		when(brandMapper.toDto(brand)).thenReturn(expected);
-		BrandDto actual = brandUseCases.saveBrand(expected);
+		BrandDto actual = saveBrandUseCase.execute(expected);
 		assertEquals(expected, actual);
 		verify(brandMapper).toDomain(expected);
 		verify(brandService).saveBrand(brand);
