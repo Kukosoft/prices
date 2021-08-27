@@ -27,7 +27,7 @@ public class SaveBrandUseCaseTest {
 	private BrandMapper brandMapper;
 
 	@InjectMocks
-	private SaveBrandUseCaseImpl saveBrandUseCase;
+	private SaveBrandUseCase saveBrandUseCase;
 
 	@Test
 	void saveBrandSuccessTest() {

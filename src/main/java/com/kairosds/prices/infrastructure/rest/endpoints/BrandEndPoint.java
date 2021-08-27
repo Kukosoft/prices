@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.dto.BrandDto;
-import com.kairosds.prices.application.usecases.brand.GetBrandByIdUseCase;
-import com.kairosds.prices.application.usecases.brand.SaveBrandUseCase;
+import com.kairosds.prices.application.usecases.UseCase;
 
 import lombok.RequiredArgsConstructor;
 
@@ -23,9 +22,9 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/brands")
 public class BrandEndPoint {
 
-	private final GetBrandByIdUseCase getBrandByIdUseCase;
+	private final UseCase<Long, BrandDto> getBrandByIdUseCase;
 
-	private final SaveBrandUseCase saveBrandUseCase;
+	private final UseCase<BrandDto, BrandDto> saveBrandUseCase;
 
 	@GetMapping("/brand/{id}")
 	public ResponseEntity<BrandDto> getBrandById(@PathVariable Long id) {

@@ -12,6 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.kairosds.prices.application.InputParameters;
 import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.application.mapper.PriceMapper;
 import com.kairosds.prices.domain.Price;
@@ -36,8 +37,8 @@ public class GetPriceUseCaseTest {
 		when(priceService.getPrice(price.getStartDate(), price.getProductId(), price.getBrand().getId()))
 				.thenReturn(price);
 		when(priceMapper.toDto(price)).thenReturn(expected);
-		PriceDto actual = getPriceUseCase.execute(expected.getStartDate(), expected.getProductId(),
-				expected.getBrandId());
+		PriceDto actual = getPriceUseCase
+				.execute(new InputParameters(expected.getStartDate(), expected.getProductId(), expected.getBrandId()));
 		assertEquals(expected, actual);
 		verify(priceService).getPrice(expected.getStartDate(), expected.getProductId(), expected.getBrandId());
 		verify(priceMapper).toDto(price);

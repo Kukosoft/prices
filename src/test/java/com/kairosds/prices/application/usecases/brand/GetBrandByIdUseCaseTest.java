@@ -27,7 +27,7 @@ public class GetBrandByIdUseCaseTest {
 	private BrandMapper brandMapper;
 
 	@InjectMocks
-	private GetBrandByIdUseCaseImpl getByIdUseCase;
+	private GetBrandByIdUseCase getByIdUseCase;
 
 	@Test
 	void getBrandByIdTest() {
