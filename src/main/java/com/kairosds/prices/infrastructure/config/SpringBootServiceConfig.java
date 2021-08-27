@@ -3,9 +3,9 @@ package com.kairosds.prices.infrastructure.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.kairosds.prices.application.InputParameters;
 import com.kairosds.prices.application.dto.BrandDto;
 import com.kairosds.prices.application.dto.PriceDto;
+import com.kairosds.prices.application.input.InputParameters;
 import com.kairosds.prices.application.mapper.BrandMapper;
 import com.kairosds.prices.application.mapper.BrandMapperImpl;
 import com.kairosds.prices.application.mapper.PriceMapper;

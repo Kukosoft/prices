@@ -12,8 +12,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.kairosds.prices.application.InputParameters;
 import com.kairosds.prices.application.dto.PriceDto;
+import com.kairosds.prices.application.input.InputParameters;
 import com.kairosds.prices.application.mapper.PriceMapper;
 import com.kairosds.prices.domain.Price;
 import com.kairosds.prices.domain.service.PriceService;

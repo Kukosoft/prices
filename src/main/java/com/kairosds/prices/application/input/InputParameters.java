@@ -1,4 +1,4 @@
-package com.kairosds.prices.application;
+package com.kairosds.prices.application.input;
 
 import java.time.LocalDateTime;
 

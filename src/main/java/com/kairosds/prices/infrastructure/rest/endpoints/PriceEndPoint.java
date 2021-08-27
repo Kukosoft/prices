@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
-import com.kairosds.prices.application.InputParameters;
 import com.kairosds.prices.application.dto.PriceDto;
+import com.kairosds.prices.application.input.InputParameters;
 import com.kairosds.prices.application.usecases.UseCase;
 
 import lombok.RequiredArgsConstructor;
