@@ -28,7 +28,7 @@ public class GetPriceUseCaseTest {
 	private PriceMapper priceMapper;
 
 	@InjectMocks
-	private GetPriceUseCaseImpl getPriceUseCase;
+	private GetPriceUseCase getPriceUseCase;
 
 	@Test
 	void getPriceTest() {

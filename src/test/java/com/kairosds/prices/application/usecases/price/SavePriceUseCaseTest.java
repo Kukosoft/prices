@@ -27,7 +27,7 @@ public class SavePriceUseCaseTest {
 	private PriceMapper priceMapper;
 
 	@InjectMocks
-	private SavePriceUseCaseImpl savePriceUseCase;
+	private SavePriceUseCase savePriceUseCase;
 
 	@Test
 	void savePriceSuccessTest() {

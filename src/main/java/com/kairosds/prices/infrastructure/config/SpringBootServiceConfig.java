@@ -14,8 +14,8 @@ import com.kairosds.prices.application.usecases.UseCase;
 import com.kairosds.prices.application.usecases.brand.GetBrandByIdUseCase;
 import com.kairosds.prices.application.usecases.brand.SaveBrandUseCase;
 import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCase;
-import com.kairosds.prices.application.usecases.price.GetPriceUseCaseImpl;
-import com.kairosds.prices.application.usecases.price.SavePriceUseCaseImpl;
+import com.kairosds.prices.application.usecases.price.GetPriceUseCase;
+import com.kairosds.prices.application.usecases.price.SavePriceUseCase;
 import com.kairosds.prices.domain.repository.BrandRepository;
 import com.kairosds.prices.domain.repository.PriceRepository;
 import com.kairosds.prices.domain.service.BrandService;
@@ -54,12 +54,12 @@ public class SpringBootServiceConfig {
 
 	@Bean
 	public UseCase<InputParameters, PriceDto> getPriceUseCase(PriceService priceService, PriceMapper priceMapper) {
-		return new GetPriceUseCaseImpl(priceService, priceMapper);
+		return new GetPriceUseCase(priceService, priceMapper);
 	}
 
 	@Bean
 	public UseCase<PriceDto, PriceDto> savePriceUseCase(PriceService priceService, PriceMapper priceMapper) {
-		return new SavePriceUseCaseImpl(priceService, priceMapper);
+		return new SavePriceUseCase(priceService, priceMapper);
 	}
 
 	@Bean
