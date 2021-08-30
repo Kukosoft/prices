@@ -1,11 +1,21 @@
 package com.kairosds.prices.domain.service;
 
 import com.kairosds.prices.domain.Brand;
+import com.kairosds.prices.domain.repository.BrandRepository;
 
-public interface BrandService {
+import lombok.RequiredArgsConstructor;
 
-	Brand getBrand(Long id);
+@RequiredArgsConstructor
+public class BrandService {
 
-	Brand saveBrand(Brand brand);
+	private final BrandRepository brandRepository;
+
+	public Brand getBrand(Long id) {
+		return brandRepository.findById(id);
+	}
+
+	public Brand saveBrand(Brand brand) {
+		return brandRepository.save(brand);
+	}
 
 }

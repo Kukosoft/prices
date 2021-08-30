@@ -17,7 +17,9 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.dto.PriceDto;
 import com.kairosds.prices.application.input.InputParameters;
-import com.kairosds.prices.application.usecases.UseCase;
+import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCase;
+import com.kairosds.prices.application.usecases.price.GetPriceUseCase;
+import com.kairosds.prices.application.usecases.price.SavePriceUseCase;
 
 import lombok.RequiredArgsConstructor;
 
@@ -26,11 +28,11 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/prices")
 public class PriceEndPoint {
 
-	private final UseCase<Long, PriceDto> getPriceByIdUseCase;
+	private final GetPriceByIdUseCase getPriceByIdUseCase;
 
-	private final UseCase<InputParameters, PriceDto> getPriceUseCase;
+	private final GetPriceUseCase getPriceUseCase;
 
-	private final UseCase<PriceDto, PriceDto> savePriceUseCase;
+	private final SavePriceUseCase savePriceUseCase;
 
 	@GetMapping("price/{id}")
 	public ResponseEntity<PriceDto> getPriceById(@PathVariable Long id) {
