@@ -77,7 +77,7 @@ public class CommonTestUtils {
 	}
 
 	public static Price priceDtoToDomain(PriceDto priceDto) {
-		Price price = createRandomPrice();
+		Price price = new Price();
 		price.setStartDate(priceDto.getStartDate());
 		price.setEndDate(priceDto.getEndDate());
 		price.setPriceList(priceDto.getPriceList());
@@ -85,8 +85,9 @@ public class CommonTestUtils {
 		price.setPrice(priceDto.getPrice());
 		price.setCurr(priceDto.getCurr());
 
-		Brand brand = createRandomBrand();
+		Brand brand = new Brand();
 		brand.setId(priceDto.getBrandId());
+
 		price.setBrand(brand);
 		return price;
 	}

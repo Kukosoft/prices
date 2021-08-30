@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class InputParameters {
+public class GetPriceInputParameters {
 
 	private LocalDateTime date;
 	private Long productId;

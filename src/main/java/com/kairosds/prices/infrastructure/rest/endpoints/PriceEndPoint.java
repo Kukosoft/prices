@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.kairosds.prices.application.dto.PriceDto;
-import com.kairosds.prices.application.input.InputParameters;
+import com.kairosds.prices.application.input.GetPriceInputParameters;
 import com.kairosds.prices.application.usecases.price.GetPriceByIdUseCase;
 import com.kairosds.prices.application.usecases.price.GetPriceUseCase;
 import com.kairosds.prices.application.usecases.price.SavePriceUseCase;
@@ -48,7 +48,7 @@ public class PriceEndPoint {
 			@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
 			@RequestParam Long productId, @RequestParam Long brandId) {
 		try {
-			return new ResponseEntity<>(getPriceUseCase.execute(new InputParameters(date, productId, brandId)),
+			return new ResponseEntity<>(getPriceUseCase.execute(new GetPriceInputParameters(date, productId, brandId)),
 					HttpStatus.OK);
 		} catch (NoSuchElementException e) {
 			throw new ResponseStatusException(HttpStatus.NO_CONTENT, "Price not found", e);
