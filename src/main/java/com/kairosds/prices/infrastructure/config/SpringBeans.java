@@ -19,7 +19,17 @@ import com.kairosds.prices.domain.service.PriceService;
 import com.kairosds.prices.domain.service.PricesPriorityComparator;
 
 @Configuration
-public class SpringBootServiceConfig {
+public class SpringBeans {
+
+	@Bean
+	public BrandMapper brandMapper() {
+		return new BrandMapperImpl();
+	}
+
+	@Bean
+	public PriceMapper priceMapper() {
+		return new PriceMapperImpl();
+	}
 
 	@Bean
 	public BrandService brandService(BrandRepository brandRepository) {
@@ -54,16 +64,6 @@ public class SpringBootServiceConfig {
 	@Bean
 	public SavePriceUseCase savePriceUseCase(PriceService priceService, PriceMapper priceMapper) {
 		return new SavePriceUseCase(priceService, priceMapper);
-	}
-
-	@Bean
-	public BrandMapper brandMapper() {
-		return new BrandMapperImpl();
-	}
-
-	@Bean
-	public PriceMapper priceMapper() {
-		return new PriceMapperImpl();
 	}
 
 }

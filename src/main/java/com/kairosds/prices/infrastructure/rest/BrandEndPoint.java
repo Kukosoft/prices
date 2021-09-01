@@ -1,4 +1,4 @@
-package com.kairosds.prices.infrastructure.rest.endpoints;
+package com.kairosds.prices.infrastructure.rest;
 
 import java.util.NoSuchElementException;
 

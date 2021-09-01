@@ -41,3 +41,11 @@ Automatic tests
 After running the microservice, open the Swagger API reference to do manual testing
 
 http://{HOST}:{PORT}/swagger-ui/index.html
+
+### Jacoco code coverage report
+
+file://&lt;PATH&gt;/prices/target/site/jacoco/index.html
+
+### H2 URL access
+
+http://localhost:8080/h2-console
